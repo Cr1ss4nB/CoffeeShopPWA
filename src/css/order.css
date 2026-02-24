@@ -1,0 +1,116 @@
+/* Estilos específicos para la vista de la orden */
+.order-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #db4938;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-display {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.price-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.price-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #db4938;
+  margin: 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #db4938;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #c0392b;
+}
+
+.btn-cancel {
+  width: 100%;
+  background-color: #6c757d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-cancel:hover {
+  background-color: #5a6268;
+}
+
+#order-result {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  display: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+}
