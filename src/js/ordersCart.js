@@ -53,6 +53,9 @@ const renderizarOrdenes = (ordenes) => {
                     <div class="order-date">
                         ${orden.fecha}
                     </div>
+                    <button class="btn-edit-order" data-order-id="${orden.id}">
+                        Editar Pedido
+                    </button>
                 </div>
             `;
         });
@@ -325,6 +328,53 @@ const mostrarMensajeVacio = () => {
 };
 
 // =========================================================
+// Promesa: Iniciar edición de una orden
+// =========================================================
+const iniciarEdicionOrden = (ordenId) => {
+    return new Promise((resolve, reject) => {
+        const ordenes = JSON.parse(localStorage.getItem('misOrdenesArray')) || [];
+        const ordenAEditar = ordenes.find(orden => orden.id === ordenId);
+        
+        if (ordenAEditar) {
+            // Guardar la orden a editar en localStorage
+            localStorage.setItem('ordenEditando', JSON.stringify(ordenAEditar));
+            console.log("Orden preparada para edición:", ordenAEditar);
+            resolve(ordenAEditar);
+        } else {
+            reject("No se encontró la orden a editar.");
+        }
+    });
+};
+
+// =========================================================
+// Promesa: Configurar event listeners para botones de editar
+// =========================================================
+const configurarBotonesEditar = () => {
+    return new Promise((resolve) => {
+        const botonesEditar = document.querySelectorAll('.btn-edit-order');
+        
+        botonesEditar.forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                const ordenId = parseInt(e.currentTarget.dataset.orderId);
+                
+                iniciarEdicionOrden(ordenId)
+                    .then((orden) => {
+                        console.log(`Redirigiendo a editar orden #${orden.id}`);
+                        // Redirigir a order.html con el café correspondiente
+                        window.location.href = `order.html?coffee=${encodeURIComponent(orden.cafe)}&edit=true`;
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        alert("Error al intentar editar la orden.");
+                    });
+            });
+        });
+        
+        resolve(`${botonesEditar.length} botones de editar configurados.`);
+    });
+};
+
+// =========================================================
 // Inicialización: Encadenamiento de promesas
 // =========================================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -337,14 +387,18 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then((ordenes) => {
             console.log("2. Órdenes renderizadas en el DOM");
+            return configurarBotonesEditar().then(() => ordenes);
+        })
+        .then((ordenes) => {
+            console.log("3. Botones de editar configurados");
             return calcularResumen(ordenes);
         })
         .then((resumen) => {
-            console.log("3. Resumen calculado:", resumen);
+            console.log("4. Resumen calculado:", resumen);
             return mostrarBotonesAccion();
         })
         .then((mensaje) => {
-            console.log("4.", mensaje);
+            console.log("5.", mensaje);
             console.log("-> Lista de órdenes cargada completamente.");
         })
         .catch((error) => {

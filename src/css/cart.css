@@ -164,6 +164,24 @@
     transform: translateY(-2px);
 }
 
+.btn-edit-order {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #ffa500;
+    color: white;
+    margin-top: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-edit-order:hover {
+    background-color: #ff8c00;
+    transform: translateY(-2px);
+}
+
 .btn-primary {
     background-color: #db4938;
     color: white;
