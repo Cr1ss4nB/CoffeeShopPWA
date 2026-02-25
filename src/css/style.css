@@ -104,6 +104,18 @@ h1 {
   transition: all 0.3s ease;
 }
 
+.order-counter-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.order-counter-link:hover .order-counter {
+  background: #db4938;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 480px) {
   .navbar {
     justify-content: center;
