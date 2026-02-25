@@ -1,7 +1,5 @@
-// 1. Creamos nuestro arreglo vacío donde vivirá la información
 const misOrdenes = [];
 
-// Obtenemos el nombre del café y si es edición desde la URL
 const urlParams = new URLSearchParams(window.location.search);
 const coffeeName = urlParams.get('coffee') || "Café Especial";
 const isEditing = urlParams.get('edit') === 'true';
@@ -111,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isEditing) {
         const pageTitle = document.querySelector('h2');
         if (pageTitle) {
-            pageTitle.textContent = '✏️ Editar Pedido';
+            pageTitle.textContent = 'Editar Pedido';
         }
 
         const btnSubmit = document.querySelector('.btn-submit');
