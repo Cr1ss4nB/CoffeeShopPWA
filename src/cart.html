@@ -40,6 +40,78 @@
                 <button type="button" class="btn-confirm" id="btn-confirm">Confirmar Todas</button>
                 <button type="button" class="btn-reject" id="btn-reject">Rechazar Todas</button>
             </div>
+
+            <!-- Sección de Pago -->
+            <div id="payment-section" class="payment-section" style="display: none;">
+                <h3>Método de Pago</h3>
+                <p class="payment-subtitle">Selecciona cómo deseas pagar tu pedido</p>
+
+                <!-- Selector de método de pago -->
+                <div class="payment-methods">
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="efectivo" id="pay-cash">
+                        <span class="payment-icon">💵</span>
+                        <span class="payment-label">Efectivo</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="tarjeta" id="pay-card">
+                        <span class="payment-icon">💳</span>
+                        <span class="payment-label">Tarjeta de Crédito</span>
+                    </label>
+                </div>
+
+                <!-- Formulario de pago en efectivo -->
+                <div id="cash-form" class="payment-form" style="display: none;">
+                    <h4>Pago en Efectivo</h4>
+                    <div class="form-group">
+                        <label for="cash-amount">Monto con el que pagas ($):</label>
+                        <input type="number" id="cash-amount" class="form-input" placeholder="Ej: 50000" min="0">
+                    </div>
+                    <div id="cash-change" class="change-display" style="display: none;">
+                        <span class="change-label">Tu cambio:</span>
+                        <span id="change-value" class="change-value">$0</span>
+                    </div>
+                    <div class="payment-actions">
+                        <button type="button" class="btn-pay" id="btn-pay-cash">Confirmar Pago</button>
+                        <button type="button" class="btn-cancel-pay" id="btn-cancel-cash">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Formulario de pago con tarjeta -->
+                <div id="card-form" class="payment-form" style="display: none;">
+                    <h4>Pago con Tarjeta de Crédito</h4>
+                    <div class="form-group">
+                        <label for="card-number">Número de Tarjeta:</label>
+                        <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Fecha de Expiración:</label>
+                            <input type="text" id="card-expiry" class="form-input" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV:</label>
+                            <input type="text" id="card-cvv" class="form-input" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Nombre en la Tarjeta:</label>
+                        <input type="text" id="card-name" class="form-input" placeholder="JUAN PEREZ">
+                    </div>
+                    <div class="payment-actions">
+                        <button type="button" class="btn-pay" id="btn-pay-card">Procesar Pago</button>
+                        <button type="button" class="btn-cancel-pay" id="btn-cancel-card">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Mensaje de resultado del pago -->
+                <div id="payment-result" class="payment-result" style="display: none;">
+                    <div id="result-icon" class="result-icon"></div>
+                    <h4 id="result-title"></h4>
+                    <p id="result-message"></p>
+                    <button type="button" class="btn-primary" id="btn-back-menu">Volver al Menú</button>
+                </div>
+            </div>
         </div>
     </main>
 
